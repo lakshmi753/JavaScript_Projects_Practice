@@ -78,24 +78,28 @@
     background-color: rgb(177, 43, 226);
     color: white;
  }
- .robo--msg{
+ .incomming--msg p{
    background-color: rgb(195, 193, 193);
    padding: 10px 12px;
    line-height: 25px;
-   width: 250px;
+   /* width: 250px; */
    margin-bottom: 0;
    margin-top: 0;
    border-radius: 6px 6px 6px 0;
  }
+ .incomming--msg p.error{
+   color: brown;
+   background-color: rgb(249, 249, 188);
+ }
  .outgoing--msg{
    justify-content: flex-end;
  }
- .user--msg{
+ .outgoing--msg p{
    background-color: rgb(177, 43, 226);
    color: white;
    padding: 10px 12px;
    line-height: 25px;
-   width: 250px;
+   /* width: 250px; */
    margin: 0;
    border-radius: 6px 6px 0 6px;
  }
@@ -172,6 +176,10 @@
    opacity: 1;
 }
 @media(max-width:500px){
+   .button--close-open{
+      right: 40px;
+      bottom: 25px;
+   }
    .chatbot{
       width: 100%;
       height: 100%;
@@ -185,7 +193,5 @@
    .header--close-button{
       visibility: visible;
    }
-   .button--close-open{
-      opacity: 0;
-   }
+   
 }
