@@ -6,7 +6,7 @@ const togglerBtn = document.querySelector('.button--close-open');
 
 let userMessage = null;
 const inputInitHeight = inputmsg.scrollHeight;
-const API_key = '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';
+const API_key = '****************************';
 
 const createChatEl = function(msg, className){
     // Creating the 'Html element' for inserting message.....
