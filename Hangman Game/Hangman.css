@@ -157,14 +157,14 @@ div {
   flex-wrap: wrap;
   gap: 6px;
 }
-.alpha {
+.keyboard-box button {
   width: calc(100% / 9 - 6px);
   font-size: 25px;
   text-transform: uppercase;
   background-color: brown;
   color: white;
 }
-.alpha:hover {
+.keyboard-box button:hover {
   background-color: rgb(171, 120, 120);
   cursor: pointer;
 }
