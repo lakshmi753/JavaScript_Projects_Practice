@@ -30,13 +30,14 @@ body {
   background-color: rgb(113, 152, 152);
 }
 
-.prev-btn {
+#prev-btn {
   z-index: 999;
   /* position: absolute; */
   left: 135px;
+  display: none;
 }
 
-.next-btn {
+#next-btn {
   right: 135px;
 }
 
@@ -63,33 +64,34 @@ body {
 .scrollbar-track-box {
   display: flex;
   width: 100%;
-  height: 30px;
+  height: 15px;
   align-items: center;
   /* background-color: black; */
 }
 
 .scrollbar-track {
   background-color: aqua;
-  height: 10px;
+  height: 5px;
   width: 100%;
   position: relative;
 }
 
 .scrollbar-track-box:hover .scrollbar-track {
-  height: 15px;
+  height: 10px;
 }
 
 .scrollbar {
   background-color: rgb(25, 91, 91);
   width: 50%;
   height: 100%;
+  border-radius: 6px;
   position: absolute;
   cursor: grab;
 }
 
-.scrollbar-track-box .scrollbar:active {
+.scrollbar-track-box .scrollbar-track.scrollbar:active {
   cursor: grabbing;
-  height: 20px;
+  height: 12px;
   top: -2px;
 }
 
@@ -98,6 +100,6 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: -2px;
-  bottom: -2px;
+  top: -4px;
+  bottom: -4px;
 }
