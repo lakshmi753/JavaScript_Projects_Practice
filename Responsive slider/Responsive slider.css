@@ -8,6 +8,7 @@ body {
 .container {
   max-width: 1200px;
   width: 95%;
+  position: relative;
 }
 
 .slide-btn {
@@ -33,17 +34,16 @@ body {
 #prev-btn {
   z-index: 999;
   /* position: absolute; */
-  left: 135px;
+  left: -21px;
   display: none;
 }
 
 #next-btn {
-  right: 135px;
+  right: -21px;
 }
 
 .images-box {
   display: grid;
-  position: relative;
   gap: 20px;
   font-size: 0;
   overflow-x: auto;
