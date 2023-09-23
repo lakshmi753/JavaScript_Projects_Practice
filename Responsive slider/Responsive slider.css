@@ -30,13 +30,14 @@ body {
   background-color: rgb(113, 152, 152);
 }
 
-.prev-btn {
+#prev-btn {
   z-index: 999;
   /* position: absolute; */
   left: 135px;
+  display: none;
 }
 
-.next-btn {
+#next-btn {
   right: 135px;
 }
 
