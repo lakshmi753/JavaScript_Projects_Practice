@@ -39,6 +39,16 @@ body {
   overflow: hidden;
   cursor: pointer;
   font-size: 0;
+  scroll-behavior: smooth;
+}
+
+.images-box.dragging {
+  scroll-behavior: auto;
+  cursor: grab;
+}
+
+.images-box.dragging img {
+  pointer-events: none;
 }
 
 .image {
