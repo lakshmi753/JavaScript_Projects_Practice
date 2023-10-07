@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="Filterable Image Gallery.css" />
   </head>
   <body>
-    <button class="btn show-all-btn">Show All</button>
-    <button class="btn phones-btn">Phones</button>
-    <button class="btn clothes-btn">Clothes</button>
-    <button class="btn shoes-btn">Shoes</button>
 
-    <div class="container">
+    <div class="container"></div>
+    <!--Filter-buttons-->
+    <div class="filter-btn">
+      <button class="btn active" data-name="show-all">Show All</button>
+      <button class="btn" data-name="phones">Phones</button>
+      <button class="btn" data-name="clothes">Clothes</button>
+      <button class="btn" data-name="shoes">Shoes</button>
+    </div>
+
       <!--coloumn--1-->
-
+    <div class="image-info-container">
       <div class="image-info-box">
         <div class="image-box">
           <img src="Images/phone1.jpg" class="image img-p-1" />
@@ -139,6 +143,7 @@
           <p class="brand-info">Brker shoes</p>
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>
