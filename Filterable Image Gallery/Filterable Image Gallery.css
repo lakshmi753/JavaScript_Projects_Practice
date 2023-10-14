@@ -1,7 +1,4 @@
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: rgb(99, 3, 99);
   min-height: 100vh;
   flex-direction: column;
@@ -16,7 +13,8 @@ body {
   display: flex;
   align-items: center;
   margin-top: 50px;
-  margin-left: 80px;
+  margin-left: 120px;
+  margin-right: 120px;
   gap: 15px;
   flex-wrap: wrap;
 }
@@ -45,19 +43,17 @@ button.active {
 }
 
 .image-info-container {
-  margin-top: 20px;
+  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 15px;
   row-gap: 15px;
   margin-top: 20px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 120px;
+  margin-right: 120px;
 }
 
 .image-info-box {
-  /*border-style: solid;
-  border-color: rgb(249, 100, 249);*/
   padding: 3px;
   border-radius: 10px;
   overflow: hidden;
@@ -71,11 +67,16 @@ button.active {
 .image {
   height: 180px;
   width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
 }
 
 .info-box {
+  background-color: azure;
+  border-radius: 0 0 10px 10px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(202, 36, 202);
   height: 70px;
 }
 
