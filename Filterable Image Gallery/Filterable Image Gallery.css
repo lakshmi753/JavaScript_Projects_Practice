@@ -1,13 +1,22 @@
 body {
   background-color: rgb(99, 3, 99);
+  min-height: 100vh;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .btn {
-  margin-top: 50px;
   padding: 12px;
   border: none;
   border-radius: 4px;
-  margin-left: 10px;
   font-family: sans-serif;
   font-size: 20px;
   font-weight: bold;
@@ -22,28 +31,31 @@ body {
   background-color: pink;
 }
 
-.btn:active {
+button.active {
   background-color: pink;
   color: rgb(99, 3, 99);
 }
 
-.container {
+.image-info-container {
+  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 15px;
   row-gap: 15px;
   margin-top: 20px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 120px;
+  margin-right: 120px;
 }
 
 .image-info-box {
-  height: 250px;
-  border-style: solid;
-  border-color: rgb(249, 100, 249);
+  padding: 3px;
   border-radius: 10px;
   overflow: hidden;
   background-color: rgb(248, 198, 248);
+}
+
+.hide {
+  display: none;
 }
 
 .image-box {
@@ -51,12 +63,18 @@ body {
 }
 
 .image {
-  height: 100%;
+  height: 180px;
   width: 100%;
-  object-fit: scale-down;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
 }
 
 .info-box {
+  background-color: azure;
+  border-radius: 0 0 10px 10px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(202, 36, 202);
   height: 70px;
 }
 
