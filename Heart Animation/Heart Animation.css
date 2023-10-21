@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: palevioletred;
+}
+
+.container {
+  position: relative;
+  height: 400px;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.919);
+
+  background-image: url("pic.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.container .heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: red;
+  font-size: 40px;
+  transform: translate(-50%, -50%);
+}
