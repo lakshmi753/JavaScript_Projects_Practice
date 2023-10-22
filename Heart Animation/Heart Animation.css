@@ -20,9 +20,38 @@ body {
 
 .container .heart {
   position: absolute;
-  left: 50%;
-  top: 50%;
   color: red;
+  opacity: 0;
   font-size: 40px;
   transform: translate(-50%, -50%);
+}
+
+.heart.active {
+  animation: animate 0.8s linear forwards;
+}
+@keyframes animate {
+  20% {
+    opacity: 1;
+    font-size: 90px;
+  }
+  40% {
+    opacity: 1;
+    font-size: 60px;
+  }
+  55% {
+    opacity: 1;
+    font-size: 80px;
+  }
+  70% {
+    opacity: 1;
+    font-size: 60px;
+  }
+  85% {
+    opacity: 1;
+    font-size: 70px;
+  }
+  100% {
+    opacity: 1;
+    font-size: 60px;
+  }
 }
