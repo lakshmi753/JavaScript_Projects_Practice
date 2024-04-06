@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(
+    to bottom right,
+    pink,
+    violet,
+    rgb(248, 1, 248),
+    purple
+  );
+  background-repeat: no-repeat;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  margin: 0;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgb(8, 107, 246);
+  font-style: oblique;
+  font-size: 55px;
+}
+
+section {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+}
+
+section h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  margin: 10px;
+  padding: 10px;
+  color: rgb(72, 130, 211);
+}
+
+.dateTimeBox {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dateTimeBox span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(76, 136, 220);
+  margin-right: 10px;
+}
+
+.dateTimeBox input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: rgb(6, 6, 153);
+  border: none;
+  border-radius: 2px;
+  padding: 5px;
+  padding-left: 10px;
+  background-color: rgba(239, 182, 248, 0.781);
+}
+
+.dateTimeBox input::placeholder {
+  color: rgb(54, 54, 245);
+}
