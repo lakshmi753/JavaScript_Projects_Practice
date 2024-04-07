@@ -6,6 +6,8 @@
     <title>CountDown Timer App.</title>
 
     <link rel="stylesheet" href="timer.css" />
+
+    <script defer src="timer.js"></script>
   </head>
   <body>
     <header>
@@ -15,7 +17,7 @@
       <h2>Set the CountDown Ending Date...</h2>
       <div class="dateTimeBox">
         <span>Enter date and time : </span>
-        <input type="text" placeholder="04 April 2024, 10:00 am" />
+        <input type="text" placeholder="04 April 2024, 10:00 am" id="setDate" />
       </div>
       <p>
         (Follow the same format for date and time as shown in the input area.)
@@ -39,6 +41,10 @@
           <div class="count count-4">0</div>
           <p>Seconds</p>
         </div>
+      </div>
+      <div class="btn-box">
+        <button class="btn">Set Timer</button>
+        <button class="btn">Reset Timer</button>
       </div>
     </main>
   </body>

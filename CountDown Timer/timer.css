@@ -87,8 +87,10 @@ main {
   height: 365px;
   width: inherit;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .countDownContainer {
@@ -126,4 +128,27 @@ main {
   font-size: 20px;
   font-weight: 900;
   color: rgb(135, 17, 190);
+}
+
+.btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 40px;
+}
+
+.btn {
+  background-color: rgb(253, 208, 216);
+  border: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  color: rgb(164, 4, 164);
+  font-size: 25px;
+  cursor: pointer;
 }
