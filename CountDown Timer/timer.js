@@ -3,6 +3,13 @@ const setTimerBtn = document.getElementById("setTimer");
 const resetTimerBtn = document.getElementById("resetTimer");
 const timerDisplayBoxes = document.querySelectorAll(".count");
 
+function displayTimer(days, hours, minutes, seconds) {
+  timerDisplayBoxes[0].textContent = days;
+  timerDisplayBoxes[1].textContent = hours;
+  timerDisplayBoxes[2].textContent = minutes;
+  timerDisplayBoxes[3].textContent = seconds;
+}
+
 function handleTimer(e) {
   const userDate = e.target.value;
   const endDate = new Date(userDate);
@@ -13,6 +20,8 @@ function handleTimer(e) {
 
   const timeDifference = endDate - presentDate;
   console.log(timeDifference);
+
+  if (timeDifference < 0) return;
 
   const timeDiffInSec = Math.floor(timeDifference / 1000);
   console.log(timeDiffInSec);
@@ -36,8 +45,17 @@ function handleTimer(e) {
   // Number of seconds................
   const seconds = remainingsecAfterHours % 60;
   console.log(seconds);
+
+  // Setting Timer ......................
+  displayTimer(days, hours, minutes, seconds);
 }
 
 inputSetDateEl.addEventListener("change", handleTimer);
 
-//setInterval(handleTimer, 1000);
+// Resetting the timer ...............................................
+function handleResetTimer() {
+  inputSetDateEl.value = "";
+  timerDisplayBoxes.forEach((el) => (el.textContent = 0));
+}
+
+resetTimerBtn.addEventListener("click", handleResetTimer);
