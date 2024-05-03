@@ -53,3 +53,16 @@ function handlePlayAgain() {
 checkBtn.addEventListener("click", handleGuessNum);
 
 againBtn.addEventListener("click", handlePlayAgain);
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+/* -> let score = 20;
+   -> This variable here can also be called as "state-variable" 
+   -> We could also have stored "score" basically in the DOM and to do that we 
+      could have always just read the value of "score" from the DOM, then we 
+      could decrease that value and then write it back to the DOM.
+   -> But then we would not gonna have that value in our code, so, essentially
+      our application would have no way of knowing that "score" at all points.
+   -> So, it's always good to keep a variable which actually holds the data in 
+      our code and not just rely on DOM to hold our data.    */
