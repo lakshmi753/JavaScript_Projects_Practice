@@ -27,16 +27,29 @@ function handleGuessNum() {
 
     highScore = highScore < score ? score : highScore;
     highScoreEl.textContent = highScore;
+
+    document.querySelector("body").style.backgroundColor = " #60b347";
+    secretNoEl.style.width = "30rem";
   } else if (guessedNum < secretNo) {
-    msgEl.textContent = "📉 Too low...";
+    if (score < 2) {
+      msgEl.textContent = "😵‍💫 Game over...";
+      scoreEl.textContent = 0;
+    } else {
+      msgEl.textContent = "📉 Too low...";
 
-    score--;
-    scoreEl.textContent = score;
+      score--;
+      scoreEl.textContent = score;
+    }
   } else if (guessedNum > secretNo) {
-    msgEl.textContent = "📈 Too high...";
+    if (score < 2) {
+      msgEl.textContent = "😵‍💫 Game over...";
+      scoreEl.textContent = 0;
+    } else {
+      msgEl.textContent = "📈 Too high...";
 
-    score--;
-    scoreEl.textContent = score;
+      score--;
+      scoreEl.textContent = score;
+    }
   }
 }
 
@@ -48,6 +61,8 @@ function handlePlayAgain() {
   secretNoEl.textContent = "?";
   highScoreEl.textContent = highScore;
   secretNo = Math.ceil(Math.random() * 20);
+  document.querySelector("body").style.backgroundColor = " #222";
+  secretNoEl.style.width = "15rem";
 }
 
 checkBtn.addEventListener("click", handleGuessNum);
@@ -58,7 +73,9 @@ againBtn.addEventListener("click", handlePlayAgain);
 ////////////////////////////////////////////////////////////////////////////////////
 
 /* -> let score = 20;
-   -> This variable here can also be called as "state-variable" 
+   -> This variable here can also be called as "state-variable" because this "score"
+      is part of the so-called application-state, which is basically all the data
+      relavent to the application.
    -> We could also have stored "score" basically in the DOM and to do that we 
       could have always just read the value of "score" from the DOM, then we 
       could decrease that value and then write it back to the DOM.
