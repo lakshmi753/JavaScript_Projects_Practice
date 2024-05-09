@@ -25,17 +25,19 @@ let activePlayer = 0;
 
 // Switching players................
 function switchingPlayers() {
-  if (activePlayer) {
+  /*if (activePlayer) {
     current1El.textContent = 0;
   } else {
     current0El.textContent = 0;
-  }
-  //console.log("Switching player");
+  }*/
+
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+
   player0El.classList.toggle("player--active");
   player1El.classList.toggle("player--active");
 
   activePlayer = activePlayer === 0 ? 1 : 0;
-  currentScore = 0;
 }
 
 // Button roll ...........................
@@ -47,13 +49,17 @@ btnRoll.addEventListener("click", function () {
   diceEl.src = `dice-${diceNum}.png`;
 
   if (diceNum !== 1) {
-    if (activePlayer) {
+    /*if (activePlayer) {
       currentScore = currentScore + diceNum;
       current1El.textContent = currentScore;
     } else {
       currentScore = currentScore + diceNum;
       current0El.textContent = currentScore;
-    }
+    }*/
+
+    currentScore += diceNum;
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
     switchingPlayers();
   }
@@ -61,13 +67,17 @@ btnRoll.addEventListener("click", function () {
 
 // Button hold....................
 btnHold.addEventListener("click", function () {
-  if (activePlayer) {
+  /*if (activePlayer) {
     totalScore[activePlayer] = totalScore[1] + currentScore;
     score1El.textContent = totalScore[activePlayer];
   } else {
     totalScore[activePlayer] = totalScore[0] + currentScore;
     score0El.textContent = totalScore[activePlayer];
-  }
+  }*/
+
+  totalScore[activePlayer] += currentScore;
+  document.getElementById(`score--${activePlayer}`).textContent =
+    totalScore[activePlayer];
 
   // Checking winning conditions...........
   if (totalScore[0] >= 100 || totalScore[1] >= 100) {
