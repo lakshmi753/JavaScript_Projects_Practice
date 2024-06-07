@@ -12,7 +12,7 @@ function displayTimer(days, hours, minutes, seconds) {
   timerDisplayBoxes[3].textContent = seconds;
 }
 
-function calcTimer(endDate) {
+function clacTimer(endDate) {
   let presentDate = new Date();
 
   const timeDifference = endDate - presentDate;
@@ -49,10 +49,10 @@ function handleTimer() {
   const endDate = new Date(userDate);
   console.log(endDate);
 
-  calcTimer(endDate);
+  clacTimer(endDate);
 
   id = setInterval(() => {
-    calcTimer(endDate);
+    clacTimer(endDate);
   }, 1000);
 }
 
