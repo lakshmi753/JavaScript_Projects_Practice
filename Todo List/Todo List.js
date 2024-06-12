@@ -1,7 +1,10 @@
 const createTaskBtn = document.querySelector(".create-task-btn");
 const enterTask = document.querySelector(".enter-task");
+const taskBox = document.querySelector(".task-box");
 
-const todoArr = [];
+let todoArr = [];
+
+getLocalStorage();
 
 const months = [
   "Jan",
@@ -18,31 +21,70 @@ const months = [
   "Dec",
 ];
 
+function displayTask({ task, time, id }) {
+  const html = `
+       <div class="tasks hidden taskk" data-id="${id}">
+          <div class="pin-task taskk">🗓️ ${time} : 📌 ${task}</div>
+          <div class="task--btns taskk">
+            <div class="first-btnp taskk">
+              <button class="btns pending--btn taskk" id="pending-btn">
+                Pending ❎
+              </button>
+            </div>
+            <div class="first-btnd first-btn-hidden taskk">
+              <button class="btns done--btn finish-task taskk">Done ☑️</button>
+            </div>
+            <button class="btns edit--btn taskk">Edit 🖋️</button>
+            <button class="btns delete--btn taskk">Remove task 🗑️</button>
+          </div>
+        </div>`;
+
+  taskBox.insertAdjacentHTML("beforeend", html);
+}
+
+function setLocalStorage() {
+  localStorage.setItem("todoArr", JSON.stringify(todoArr));
+}
+
+function getLocalStorage() {
+  const data = JSON.parse(localStorage.getItem("todoArr"));
+
+  if (!data) return;
+
+  todoArr = data;
+
+  todoArr.forEach((task) => displayTask(task));
+}
+
 function handleCreateTask() {
   const taskk = enterTask.value.toUpperCase();
   const task = taskk[0] + taskk.slice(1).toLowerCase();
 
-  //console.log(task, taskk);
+  const id = (Date.now() + "").slice(-10);
 
   const date = new Date();
 
+  let hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+  let minutes =
+    date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+  let seconds =
+    date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds();
+
   const time = `${date.getDate()} ${
     months[date.getMonth()]
-  }, ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${
-    date.getHours() >= 0 && date.getHours() < 12 ? "AM" : "PM"
-  }`;
+  }, ${hours}:${minutes}:${seconds} ${hours >= 0 && hours < 12 ? "AM" : "PM"}`;
 
-  const taskObj = {
+  let taskObj = {
     task: task,
     time: time,
+    id: id,
   };
 
   todoArr.push(taskObj);
 
-  localStorage.setItem("todoArr", JSON.stringify(todoArr));
+  setLocalStorage();
 
-  const todoArr2 = JSON.parse(localStorage.getItem("todoArr"));
-  console.log(todoArr2);
+  displayTask(taskObj);
 }
 
 createTaskBtn.addEventListener("click", handleCreateTask);
