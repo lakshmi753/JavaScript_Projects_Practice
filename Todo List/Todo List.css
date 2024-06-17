@@ -148,16 +148,8 @@ body {
   cursor: pointer;
 }
 
-.pending--btn {
-  background-color: rgb(251, 177, 40);
-}
-
 .done--btn {
   background-color: rgb(14, 178, 14);
-}
-
-.first-btn-hidden {
-  display: none;
 }
 
 .finish-task {
@@ -166,7 +158,7 @@ body {
 }
 
 .edit--btn {
-  background-color: rgb(198, 248, 100);
+  background-color: rgb(251, 177, 40);
 }
 
 .delete--btn {

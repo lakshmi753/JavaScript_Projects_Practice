@@ -1,6 +1,9 @@
 const createTaskBtn = document.querySelector(".create-task-btn");
+const btnText = createTaskBtn.innerText;
 const enterTask = document.querySelector(".enter-task");
 const taskBox = document.querySelector(".task-box");
+
+let edit_id = null;
 
 let todoArr = [];
 
@@ -21,28 +24,7 @@ const months = [
   "Dec",
 ];
 
-function displayTask({ task, time, id }) {
-  const html = `
-       <div class="tasks hidden taskk" data-id="${id}">
-          <div class="pin-task taskk">🗓️ ${time} : 📌 ${task}</div>
-          <div class="task--btns taskk">
-            <div class="first-btnp taskk">
-              <button class="btns pending--btn taskk" id="pending-btn">
-                Pending ❎
-              </button>
-            </div>
-            <div class="first-btnd first-btn-hidden taskk">
-              <button class="btns done--btn finish-task taskk">Done ☑️</button>
-            </div>
-            <button class="btns edit--btn taskk">Edit 🖋️</button>
-            <button class="btns delete--btn taskk">Remove task 🗑️</button>
-          </div>
-        </div>`;
-
-  taskBox.insertAdjacentHTML("beforeend", html);
-}
-
-function setLocalStorage() {
+function setLocalStorage(todoArr) {
   localStorage.setItem("todoArr", JSON.stringify(todoArr));
 }
 
@@ -53,7 +35,7 @@ function getLocalStorage() {
 
   todoArr = data;
 
-  todoArr.forEach((task) => displayTask(task));
+  displayTask();
 }
 
 function handleCreateTask() {
@@ -61,7 +43,6 @@ function handleCreateTask() {
   const task = taskk[0] + taskk.slice(1).toLowerCase();
 
   const id = (Date.now() + "").slice(-10);
-
   const date = new Date();
 
   let hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
@@ -74,17 +55,59 @@ function handleCreateTask() {
     months[date.getMonth()]
   }, ${hours}:${minutes}:${seconds} ${hours >= 0 && hours < 12 ? "AM" : "PM"}`;
 
-  let taskObj = {
-    task: task,
-    time: time,
-    id: id,
-  };
+  if (edit_id !== null) {
+    todoArr.splice(edit_id, 1, { task: task, time: time, id: id });
+  } else {
+    todoArr.push({ task, time, id });
+  }
 
-  todoArr.push(taskObj);
+  setLocalStorage(todoArr);
 
-  setLocalStorage();
+  enterTask.value = "";
 
-  displayTask(taskObj);
+  createTaskBtn.innerText = btnText;
+
+  displayTask();
 }
 
 createTaskBtn.addEventListener("click", handleCreateTask);
+
+function displayTask() {
+  let html = "";
+  todoArr.forEach((taskObj, i) => {
+    html += `
+    <div class="tasks hidden taskk" data-id="${taskObj.id}">
+       <div class="pin-task taskk">🗓️ ${taskObj.time} : 📌 ${taskObj.task}</div>
+       <div class="task--btns taskk">
+         <div class="first-btnd  taskk">
+           <button class="btns done--btn  taskk" onclick="task_done(${taskObj.id})">Done ☑️</button>
+         </div>
+         <button class="btns edit--btn taskk" onclick="task_edit(${i})">Edit 🖋️</button>
+         <button class="btns delete--btn taskk" onclick="task_delete(${i})">Remove task 🗑️</button>
+       </div>
+     </div>`;
+  });
+  taskBox.innerHTML = html;
+}
+
+function task_done(i) {
+  console.log(i);
+  const pinTask = document.querySelector(".pin-task");
+
+  pinTask.classList.toggle("finish-task");
+}
+
+function task_edit(i) {
+  edit_id = i;
+  enterTask.value = todoArr[i].task;
+  enterTask.focus();
+  createTaskBtn.innerText = "Save Changes";
+}
+
+function task_delete(i) {
+  todoArr.splice(i, 1);
+
+  setLocalStorage(todoArr);
+
+  displayTask();
+}
