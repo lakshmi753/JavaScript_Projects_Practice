@@ -57,6 +57,8 @@ function handleCreateTask() {
 
   if (edit_id !== null) {
     todoArr.splice(edit_id, 1, { task: task, time: time, id: id });
+
+    edit_id = null;
   } else {
     todoArr.push({ task, time, id });
   }
@@ -79,9 +81,7 @@ function displayTask() {
     <div class="tasks hidden taskk" data-id="${taskObj.id}">
        <div class="pin-task taskk">🗓️ ${taskObj.time} : 📌 ${taskObj.task}</div>
        <div class="task--btns taskk">
-         <div class="first-btnd  taskk">
-           <button class="btns done--btn  taskk" onclick="task_done(${taskObj.id})">Done ☑️</button>
-         </div>
+         <button class="btns done--btn  taskk" onclick="task_done(${taskObj.id})">Done ☑️</button>
          <button class="btns edit--btn taskk" onclick="task_edit(${i})">Edit 🖋️</button>
          <button class="btns delete--btn taskk" onclick="task_delete(${i})">Remove task 🗑️</button>
        </div>
