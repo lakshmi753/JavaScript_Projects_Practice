@@ -79,20 +79,21 @@ function displayTask() {
   todoArr.forEach((taskObj, i) => {
     html += `
     <div class="tasks hidden taskk" data-id="${taskObj.id}">
-       <div class="pin-task taskk">🗓️ ${taskObj.time} : 📌 ${taskObj.task}</div>
+       <div class="pin-task taskk" id="${taskObj.id}">🗓️ ${taskObj.time} : 📌 ${taskObj.task}</div>
        <div class="task--btns taskk">
-         <button class="btns done--btn  taskk" onclick="task_done(${taskObj.id})">Done ☑️</button>
+         <button class="btns done--btn  taskk" id="${taskObj.id}" onclick="task_done(this)">Done ☑️</button>
          <button class="btns edit--btn taskk" onclick="task_edit(${i})">Edit 🖋️</button>
-         <button class="btns delete--btn taskk" onclick="task_delete(${i})">Remove task 🗑️</button>
+         <button class="btns delete--btn taskk" id="${taskObj.id}" onclick="task_delete(this, ${i})">Remove task 🗑️</button>
        </div>
      </div>`;
   });
   taskBox.innerHTML = html;
 }
 
-function task_done(i) {
-  console.log(i);
-  const pinTask = document.querySelector(".pin-task");
+function task_done(e) {
+  const id = e.getAttribute("id");
+
+  const pinTask = document.getElementById(id);
 
   pinTask.classList.toggle("finish-task");
 }
@@ -104,10 +105,18 @@ function task_edit(i) {
   createTaskBtn.innerText = "Save Changes";
 }
 
-function task_delete(i) {
-  todoArr.splice(i, 1);
+function task_delete(e, i) {
+  const id = e.getAttribute("id");
 
-  setLocalStorage(todoArr);
+  const pinTask = document.getElementById(id);
 
-  displayTask();
+  if (pinTask.classList.contains("finish-task")) {
+    todoArr.splice(i, 1);
+
+    setLocalStorage(todoArr);
+
+    displayTask();
+  } else {
+    alert("First finish your task please ☺️");
+  }
 }
