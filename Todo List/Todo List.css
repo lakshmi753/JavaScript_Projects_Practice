@@ -42,7 +42,7 @@ body {
   padding-right: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 30px;
 }
 
@@ -163,4 +163,17 @@ body {
 
 .delete--btn {
   background-color: orangered;
+}
+
+.clear--btn {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 6px;
+  padding-top: 5px;
+  padding-top: 5px;
+  color: brown;
+  background-color: rgb(248, 228, 202);
 }
