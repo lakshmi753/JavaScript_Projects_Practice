@@ -3,6 +3,7 @@ const btnText = createTaskBtn.innerText;
 const enterTask = document.querySelector(".enter-task");
 const taskBox = document.querySelector(".task-box");
 const totalTask = document.querySelector(".total--task");
+const clearListBtn = document.querySelector(".clear--btn");
 
 let edit_id = null;
 
@@ -28,7 +29,7 @@ const months = [
 function setLocalStorage(todoArr) {
   localStorage.setItem("todoArr", JSON.stringify(todoArr));
 
-  totalTask.textContent = `Total Task - ${todoArr.length}`;
+  totalTask.textContent = `Total Task - ${todoArr?.length}`;
 }
 
 function getLocalStorage() {
@@ -44,6 +45,8 @@ function getLocalStorage() {
 }
 
 function handleCreateTask() {
+  if (!enterTask.value) return;
+
   const taskk = enterTask.value.toUpperCase();
   const task = taskk[0] + taskk.slice(1).toLowerCase();
 
@@ -125,3 +128,16 @@ function task_delete(e, i) {
     alert("First finish your task please ☺️");
   }
 }
+
+clearListBtn.addEventListener("click", function () {
+  if (todoArr.length === 0) return;
+
+  const confirmed = confirm("Do you really want to clear your task list 😯 ?");
+
+  if (confirmed) {
+    todoArr = [];
+    setLocalStorage(todoArr);
+
+    displayTask();
+  }
+});
