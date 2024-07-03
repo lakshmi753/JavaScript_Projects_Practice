@@ -2,6 +2,7 @@ const createTaskBtn = document.querySelector(".create-task-btn");
 const btnText = createTaskBtn.innerText;
 const enterTask = document.querySelector(".enter-task");
 const taskBox = document.querySelector(".task-box");
+const totalTask = document.querySelector(".total--task");
 
 let edit_id = null;
 
@@ -26,6 +27,8 @@ const months = [
 
 function setLocalStorage(todoArr) {
   localStorage.setItem("todoArr", JSON.stringify(todoArr));
+
+  totalTask.textContent = `Total Task - ${todoArr.length}`;
 }
 
 function getLocalStorage() {
@@ -34,6 +37,8 @@ function getLocalStorage() {
   if (!data) return;
 
   todoArr = data;
+
+  totalTask.textContent = `Total Task - ${todoArr.length}`;
 
   displayTask();
 }
