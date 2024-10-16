@@ -6,7 +6,7 @@ const togglerBtn = document.querySelector(".button--close-open");
 
 let userMessage = null;
 const inputInitHeight = inputmsg.scrollHeight;
-const API_key = "sk-proj-b2nVJ01SWTVTAcp3gfHqT3BlbkFJuGYY6jHRWsWtEZcF2TCW";
+const API_key = "8888888888888888888888888888888888888888888";
 
 const createChatEl = function (msg, className) {
   // Creating the 'Html element' for inserting message.....
@@ -99,4 +99,5 @@ togglerBtn.addEventListener("click", () =>
   document.body.classList.toggle("show-chatbot")
 );
 
+//sk-proj-b2nVJ01SWTVTAcp3gfHqT3BlbkFJuGYY6jHRWsWtEZcF2TCW
 //sk-proj-b2nVJ01SWTVTAcp3gfHqT3BlbkFJuGYY6jHRWsWtEZcF2TCW
