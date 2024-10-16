@@ -96,8 +96,8 @@ body {
 }
 .incomming--msg p {
   background-color: rgb(195, 193, 193);
-  padding: 10px 12px;
-  line-height: 25px;
+  padding: 10px 10px;
+  line-height: 15px;
   /* width: 250px; */
   margin-bottom: 0;
   margin-top: 0;

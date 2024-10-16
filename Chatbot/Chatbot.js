@@ -6,7 +6,7 @@ const togglerBtn = document.querySelector(".button--close-open");
 
 let userMessage = null;
 const inputInitHeight = inputmsg.scrollHeight;
-const API_key = "************************************";
+const API_key = "sk-proj-b2nVJ01SWTVTAcp3gfHqT3BlbkFJuGYY6jHRWsWtEZcF2TCW";
 
 const createChatEl = function (msg, className) {
   // Creating the 'Html element' for inserting message.....
@@ -26,7 +26,7 @@ const createChatEl = function (msg, className) {
 };
 
 const generateResponse = function (msgEl) {
-  const API_url = "https://api.openai.com/v1/chat/completions";
+  const API_url = "https://api.openai.com/v1/completions";
   const ApiMsgEl = msgEl.querySelector("p");
 
   // Defining properties and message for API request.........
@@ -98,3 +98,5 @@ headerCloseBtn.addEventListener("click", () =>
 togglerBtn.addEventListener("click", () =>
   document.body.classList.toggle("show-chatbot")
 );
+
+//sk-proj-b2nVJ01SWTVTAcp3gfHqT3BlbkFJuGYY6jHRWsWtEZcF2TCW
